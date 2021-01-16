@@ -1,9 +1,11 @@
 # by-n-they-come Copyright © 2021 Aaron Seilis. See LICENSE for details.
 
 import argparse
-import sys
-import shutil
 import os
+import shutil
+import sys
+
+from typing import Iterator, List, Tuple
 
 def eprint(*args, **kwargs):
     """Error print
@@ -13,7 +15,7 @@ def eprint(*args, **kwargs):
     """
     print(*args, file=sys.stderr, **kwargs)
 
-def split_iter_by_n(files, n: int) -> Iterator[int, List[str]]:
+def split_iter_by_n(files, n: int) -> Iterator[Tuple[int, List[str]]]:
     """Split a list of files into N evenly-sized groups
 
     :param files: The files to be split into groups
